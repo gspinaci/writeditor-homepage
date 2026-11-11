@@ -68,37 +68,32 @@ export default function Home() {
           </div>
 
           {/* product shot, drawn in markup so it stays sharp */}
-          <div className="relative z-10 mx-auto w-full max-w-md lg:translate-y-28">
-          <div className="relative" aria-label="Editor preview" role="img">
-            <div className="overflow-hidden rounded-2xl bg-white/90 p-2 shadow-[0_40px_80px_-30px_rgb(40_20_90/.45)] ring-1 ring-white/70 backdrop-blur">
-              <div className="flex items-center gap-1.5 px-2 pb-2 pt-1">
-                <span className="size-2.5 rounded-full bg-[#ff5f57]" /><span className="size-2.5 rounded-full bg-[#febc2e]" /><span className="size-2.5 rounded-full bg-[#28c840]" />
-                <span className="ml-3 text-xs text-neutral-500">● Live · G. Spinaci, Silvio Peroni</span>
+          <div className="relative z-10 mx-auto w-full max-w-md lg:translate-y-28" role="img" aria-label="A paper with a tracked change and its author log">
+            <div className="overflow-hidden rounded-xl border border-neutral-200 bg-white text-neutral-900 shadow-[0_24px_48px_-16px_rgb(30_10_80/.35)]">
+              <div className="flex items-center gap-2 border-b border-neutral-100 px-4 py-2.5 text-xs">
+                <span className="font-medium">HTML Is All You Need</span>
+                <span className="text-neutral-400">/ Introduction</span>
+                <span className="ml-auto flex -space-x-1.5">
+                  <span className="grid size-6 place-items-center rounded-full bg-brand-purple text-[10px] font-semibold text-white ring-2 ring-white">GS</span>
+                  <span className="grid size-6 place-items-center rounded-full bg-brand-yellow text-[10px] font-semibold text-neutral-900 ring-2 ring-white">SP</span>
+                  <span className="grid size-6 place-items-center rounded-full bg-brand-teal text-[10px] font-semibold text-neutral-900 ring-2 ring-white">AI</span>
+                </span>
               </div>
-              <div className="grid grid-cols-[1fr_36%] overflow-hidden rounded-lg bg-white text-neutral-900 ring-1 ring-neutral-200">
-                <div className="p-4">
-                  <p className="font-serif text-lg font-semibold leading-snug">HTML Is All You Need</p>
-                  <p className="mt-1 text-sm text-neutral-500">G. Spinaci, S. Peroni</p>
-                  <p className="mt-4 text-xs font-semibold">1 Introduction</p>
-                  <p className="mt-2 font-serif text-sm leading-relaxed">
-                    LaTeX produces beautiful PDFs, but the PDF is where structure goes to die.{" "}
-                    <span className="rounded bg-[#fff1c2] px-0.5">Search engines and AI agents need that structure back [1].</span>
-                  </p>
-                  <div className="mt-4 grid h-16 place-items-center rounded bg-neutral-100 text-xs text-neutral-400">Figure 1</div>
+              <div className="flex gap-1 border-b border-neutral-100 px-3 py-1.5 text-[11px] text-neutral-500">
+                {["B", "I", "H1", "Cite", "Fig", "Export"].map((t) => <span key={t} className="rounded-md px-2 py-1 first:font-bold">{t}</span>)}
+              </div>
+              <div className="px-7 py-6">
+                <p className="font-serif text-lg font-bold">1 Introduction</p>
+                <p className="mt-3 font-serif text-[15px] leading-relaxed">
+                  LaTeX produces beautiful PDFs, but <del className="rounded bg-red-100 px-0.5 text-red-900">the PDF is where structure goes to die</del>{" "}
+                  <ins className="rounded bg-green-100 px-0.5 text-green-900 no-underline">structure is lost in the PDF</ins>. Search engines and agents need it back [1].
+                </p>
+                <div className="mt-5 flex items-center gap-2 rounded-lg bg-neutral-50 px-3 py-2 text-xs text-neutral-600">
+                  <span className="size-2 rounded-full bg-brand-teal" />Agent edited 1 sentence
+                  <span className="ml-auto font-semibold text-green-700">Accept</span><span className="font-semibold text-neutral-400">Reject</span>
                 </div>
-                <pre className="overflow-hidden border-l border-neutral-200 bg-neutral-50 p-3 font-mono text-[9px] leading-relaxed text-neutral-500">{`<section id="intro">
-  <h1>Introduction</h1>
-  <p>LaTeX produces
-  … structure back
-  <a href="#b1">[1]</a>
-  </p>
-  <figure id="f1">
-    …
-  </figure>
-</section>`}</pre>
               </div>
             </div>
-          </div>
           </div>
         </div>
 
