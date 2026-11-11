@@ -16,8 +16,8 @@ const icons = {
 };
 
 const features = [
-  { icon: icons.code, title: "Papers machines can read", body: "Writ writes RASH, a scholarly subset of HTML. Every section, figure, formula and citation is tagged as you type, so your paper is searchable, linkable and ready for linked data, not locked inside a PDF." },
-  { icon: icons.agent, title: "Your agent, your keys", body: "Plug in your own API key, or connect Claude Code or any MCP agent to a live session. Agents edit the same paper you see, in real time. Skills from the marketplace plug in the same way." },
+  { icon: icons.code, title: "Papers machines can read", body: <>Writ uses <a href="https://github.com/essepuntato/rash" className="underline hover:text-brand-violet">RASH</a>, a scholarly subset of HTML. Every section, figure, formula and citation is tagged as you type, so your paper is searchable, linkable and ready for linked data, not locked inside a PDF.</> },
+  { icon: icons.agent, title: "HTML-first is AI-first", body: "Plug in your own API key, or connect any MCP agent to a live session. Agents and skills edit the same paper you see, in real time." },
   { icon: icons.history, title: "Every change has an author", body: "Co-authors and agents write together. Each change is recorded with who made it, person or model, so you always know who wrote what." },
 ];
 
@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <div className="theme-light min-h-dvh bg-bg font-sans text-ink">
       {/* ---------- HERO ---------- */}
-      <section className="relative isolate overflow-hidden bg-linear-to-tr from-brand-purple from-25% via-brand-violet via-55% to-brand-teal text-white">
+      <section className="relative isolate overflow-x-clip bg-linear-to-tr from-brand-purple from-25% via-brand-violet via-55% to-brand-teal text-white">
         <div aria-hidden className="absolute -right-10 -top-10 -z-10 h-80 w-96 [mask-image:radial-gradient(closest-side,black,transparent)]" style={dots} />
         <div aria-hidden className="absolute -left-16 top-1/2 -z-10 h-72 w-64 [mask-image:radial-gradient(closest-side,black,transparent)]" style={dots} />
         <div aria-hidden className="absolute bottom-24 left-[38%] -z-10 h-48 w-48 rounded-full bg-brand-teal/30 blur-3xl" />
@@ -58,10 +58,9 @@ export default function Home() {
           </a>
         </header>
 
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 pb-40 pt-8 sm:px-6 lg:grid-cols-[1fr_1.45fr] lg:pb-64 lg:pt-14">
-          <div className="lg:col-span-2">
-            <p className="mb-4 inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-medium ring-1 ring-white/25">Closed alpha · invite only</p>
-            <h1 className="whitespace-nowrap font-display text-[clamp(1.05rem,4.4vw,3.25rem)] font-bold leading-[1.15] tracking-tight">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 pb-40 pt-8 sm:px-6 lg:grid-cols-[1fr_1fr] lg:pb-40 lg:pt-32">
+          <div>
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight">
               Write scientific papers in HTML.
               <span className="mt-3 block w-fit rounded-sm bg-[#b4d5fe] px-1.5 text-xl font-medium tracking-normal text-neutral-900 sm:text-2xl">LaTeX compatible.<span aria-hidden className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-0.5 animate-pulse bg-brand-purple" /></span>
             </h1>
@@ -69,25 +68,25 @@ export default function Home() {
           </div>
 
           {/* product shot, drawn in markup so it stays sharp */}
-          <div className="mx-auto w-full max-w-2xl lg:col-span-2 lg:translate-y-8">
+          <div className="relative z-10 mx-auto w-full max-w-md lg:translate-y-28">
           <div className="relative" aria-label="Editor preview" role="img">
             <div className="overflow-hidden rounded-2xl bg-white/90 p-2 shadow-[0_40px_80px_-30px_rgb(40_20_90/.45)] ring-1 ring-white/70 backdrop-blur">
               <div className="flex items-center gap-1.5 px-2 pb-2 pt-1">
                 <span className="size-2.5 rounded-full bg-[#ff5f57]" /><span className="size-2.5 rounded-full bg-[#febc2e]" /><span className="size-2.5 rounded-full bg-[#28c840]" />
                 <span className="ml-3 text-xs text-neutral-500">● Live · G. Spinaci, Silvio Peroni</span>
               </div>
-              <div className="grid grid-cols-[1fr_38%] overflow-hidden rounded-lg bg-white text-neutral-900 ring-1 ring-neutral-200">
-                <div className="p-5 sm:p-9">
-                  <p className="font-serif text-2xl font-semibold leading-snug">HTML Is All You Need</p>
+              <div className="grid grid-cols-[1fr_36%] overflow-hidden rounded-lg bg-white text-neutral-900 ring-1 ring-neutral-200">
+                <div className="p-4">
+                  <p className="font-serif text-lg font-semibold leading-snug">HTML Is All You Need</p>
                   <p className="mt-1 text-sm text-neutral-500">G. Spinaci, S. Peroni</p>
-                  <p className="mt-6 text-sm font-semibold">1 Introduction</p>
-                  <p className="mt-2 font-serif text-base leading-relaxed">
+                  <p className="mt-4 text-xs font-semibold">1 Introduction</p>
+                  <p className="mt-2 font-serif text-sm leading-relaxed">
                     LaTeX produces beautiful PDFs, but the PDF is where structure goes to die.{" "}
                     <span className="rounded bg-[#fff1c2] px-0.5">Search engines and AI agents need that structure back [1].</span>
                   </p>
-                  <div className="mt-6 grid h-24 place-items-center rounded bg-neutral-100 text-xs text-neutral-400">Figure 1</div>
+                  <div className="mt-4 grid h-16 place-items-center rounded bg-neutral-100 text-xs text-neutral-400">Figure 1</div>
                 </div>
-                <pre className="overflow-hidden border-l border-neutral-200 bg-neutral-50 p-4 font-mono text-[11px] leading-relaxed text-neutral-500">{`<section id="intro">
+                <pre className="overflow-hidden border-l border-neutral-200 bg-neutral-50 p-3 font-mono text-[9px] leading-relaxed text-neutral-500">{`<section id="intro">
   <h1>Introduction</h1>
   <p>LaTeX produces
   … structure back
@@ -189,27 +188,12 @@ export default function Home() {
         {/* ---------- CTA BAND ---------- */}
         <section id="alpha" className="relative isolate overflow-hidden bg-brand-purple text-white">
           <div aria-hidden className="absolute -right-8 top-6 -z-10 h-56 w-72 [mask-image:radial-gradient(closest-side,black,transparent)]" style={dots} />
-          <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 md:grid-cols-[1.2fr_1fr]">
-            <div>
-              <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">Join the closed alpha now!</h2>
-              <p className="mt-4 max-w-lg text-white/85">
-                We are onboarding labs and research groups in small batches. Leave your email and we&apos;ll send an invite link when your spot opens.
-              </p>
-              <div className="mt-8"><WaitlistForm /></div>
-            </div>
-            <div aria-hidden className="mx-auto w-56 rotate-3 rounded-[2rem] bg-white/85 p-2.5 shadow-[0_30px_60px_-25px_rgb(30_10_80/.5)] ring-1 ring-white/60">
-              <div className="rounded-[1.5rem] bg-white p-4 text-neutral-900 ring-1 ring-neutral-200">
-                <p className="text-center font-mono text-[10px] text-neutral-400">paper.tex</p>
-                <pre className="mt-3 whitespace-pre-wrap font-mono text-[9px] leading-relaxed text-neutral-600">{`\\begin{abstract}
-We argue that …
-\\end{abstract}
-
-\\section{Introduction}
-LaTeX produces …
-\\cite{b1}.`}</pre>
-                <div className="mt-4 rounded-full bg-brand-purple py-1.5 text-center text-[9px] font-bold uppercase tracking-wider text-white">Exported</div>
-              </div>
-            </div>
+          <div className="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32">
+            <h2 className="font-display text-4xl font-bold tracking-tight sm:text-6xl">Join the closed alpha now!</h2>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/85 sm:text-xl">
+              We are onboarding labs and research groups in small batches. Leave your email and we&apos;ll send an invite link when your spot opens.
+            </p>
+            <div className="mt-10 [&>form]:mx-auto [&>form]:max-w-xl"><WaitlistForm /></div>
           </div>
         </section>
 
@@ -223,11 +207,9 @@ LaTeX produces …
           <div>
             <h2 className="font-display text-3xl font-bold leading-tight tracking-tight">Structure in, structure out.<br />Search everything.</h2>
             <p className="mt-5 leading-relaxed text-muted">
-              LaTeX is a typesetting language. Its structure gets lost in the PDF, and machines have to guess it back.
-              Writ stores your paper as RASH, a strict subset of HTML designed for scholarly articles. Every abstract, section, figure and reference stays tagged and addressable.
-              Search engines, institutional repositories and your own agents can read it as it was meant to be read.
+              A PDF loses your paper's structure, and machines have to guess it back.
+              Writ stores your paper as RASH, so every section, figure and reference stays tagged and readable by search engines, repositories and agents.
             </p>
-            <p className="mt-4 text-sm text-muted">Coming next: structured citations from Zotero (BibTeX/CSL) and a persistent identifier for every published paper.</p>
             <p className="mt-6 font-display text-sm font-bold uppercase tracking-wider text-brand-violet">Built on the RASH framework</p>
             <p className="text-xs text-muted">Research Articles in Simplified HTML</p>
           </div>
