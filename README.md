@@ -16,4 +16,4 @@ Do not send a confirmation email on insert (that is the email-bombing vector: an
 
 ## SEO and analytics
 
-`SITE_URL` and `BASE_PATH` (set in `.github/workflows/pages.yml`) drive the canonical URL, sitemap and robots. For a custom domain, set `SITE_URL` to it and drop `BASE_PATH`. Analytics is Plausible, loaded only when `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is set at build time.
+`SITE_URL` (set in `.github/workflows/pages.yml`) and the optional `BASE_PATH` drive the canonical URL, sitemap and robots. The site is on the custom domain `usewrit.dev`, so no `BASE_PATH` is set; add one only to serve from `github.io/writeditor-homepage`. Analytics is Plausible, loaded only when `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is set at build time.
