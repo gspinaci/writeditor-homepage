@@ -7,6 +7,7 @@ type State = { ok: boolean; message: string } | null;
 // Publishable key: insert-only by row-level security, safe to ship in the page.
 const URL = "https://yzlgumajetbzxhewbfoe.supabase.co/rest/v1/waitlist";
 const KEY = "sb_publishable_VLt4IGaM0wWDah9tWvplTA_jY3XCJ1M";
+let last = 0; // client-side throttle only; the real limits must live server-side (see README)
 const DONE = "You're on the list. We'll email your invite.";
 
 /** Email + Subscribe, posting straight from the browser to the Supabase waitlist table. */
@@ -17,6 +18,8 @@ export default function WaitlistForm() {
     e.preventDefault();
     const f = new FormData(e.currentTarget);
     if (f.get("website")) return setState({ ok: true, message: DONE }); // honeypot: bots fill hidden fields
+    if (Date.now() - last < 30_000) return setState({ ok: false, message: "Please wait a moment before trying again." });
+    last = Date.now();
     setPending(true);
     try {
       const r = await fetch(URL, {
@@ -38,7 +41,7 @@ export default function WaitlistForm() {
     <form onSubmit={submit} className="w-full max-w-md">
       <div className="flex flex-col gap-2 sm:flex-row">
         <label htmlFor={id} className="sr-only">Email address</label>
-        <input id={id} name="email" type="email" required autoComplete="email" placeholder="Enter your email here"
+        <input id={id} name="email" type="email" required maxLength={254} autoComplete="email" placeholder="Enter your email here"
           aria-invalid={state?.ok === false || undefined} aria-describedby={`${id}-msg`}
           className="h-11 w-full min-w-0 rounded-full sm:flex-1 border-0 bg-white px-5 text-sm text-neutral-900 shadow-sm outline-none placeholder:text-neutral-400 focus-visible:ring-4 focus-visible:ring-brand-yellow" />
         {/* honeypot */}

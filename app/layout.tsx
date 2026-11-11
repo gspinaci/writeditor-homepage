@@ -7,15 +7,40 @@ const serif = Source_Serif_4({ subsets: ["latin"], variable: "--font-serif4", st
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
 const display = Montserrat({ subsets: ["latin"], variable: "--font-montserrat", weight: ["500", "600", "700", "800"] });
 
+const site = process.env.SITE_URL ?? "https://usewrit.dev"; // CI sets it to the live URL
+const base = process.env.BASE_PATH ?? "";
+const title = "Writ: write scientific papers in HTML, submit them in LaTeX";
+const description = "Writ is an AI-first WYSIWYG editor for scholarly articles. Semantic HTML that machines can read, live collaboration with co-authors and your own AI agents, and export to HTML, PDF and LaTeX.";
+
 export const metadata: Metadata = {
-  title: "Writ: write scientific papers in HTML, submit them in LaTeX",
-  description: "Writ is an AI-first WYSIWYG editor for scholarly articles. Semantic HTML that machines can read, live collaboration with co-authors and your own AI agents, and export to HTML, PDF and LaTeX.",
+  metadataBase: new URL(site + base + "/"),
+  title,
+  description,
+  alternates: { canonical: "./" },
+  keywords: ["scientific writing", "RASH", "HTML", "LaTeX", "scholarly publishing", "WYSIWYG", "MCP", "AI agents"],
+  openGraph: { type: "website", siteName: "Writ", title, description, url: "./" },
+  twitter: { card: "summary_large_image", title, description },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Writ",
+  applicationCategory: "BrowserApplication",
+  description,
+  url: site + base + "/",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${serif.variable} ${mono.variable} ${display.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        {children}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
+          <script defer data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN} src="https://plausible.io/js/script.js" />
+        )}
+      </body>
     </html>
   );
 }

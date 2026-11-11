@@ -189,6 +189,7 @@ export default function Home() {
               We are onboarding labs and research groups in small batches. Leave your email and we&apos;ll send an invite link when your spot opens.
             </p>
             <div className="mt-10 [&>form]:mx-auto [&>form]:max-w-xl"><WaitlistForm /></div>
+            <p className="mt-6 text-sm text-white/75">Questions? <a href="mailto:hello@usewrit.dev" className="underline hover:text-white">hello@usewrit.dev</a></p>
           </div>
         </section>
 
