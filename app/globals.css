@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/* Design tokens: one place for color, both themes. Utilities read them via @theme inline. */
+:root {
+  --bg: #f7f6f3; --surface: #ffffff; --ink: #1f1f1d; --muted: #6f6e69; --line: #e7e5df;
+  --accent: #2f5bea; --accent-soft: #e8eefe; --remote: #fff1c2; --remote-ink: #8a6100; --danger: #b42318;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161615; --surface: #1e1e1c; --ink: #ecebe6; --muted: #9a998f; --line: #2e2d2a;
+    --accent: #7c9cff; --accent-soft: #232b45; --remote: #4a3b10; --remote-ink: #f3cf6a; --danger: #ff8a7a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161615; --surface: #1e1e1c; --ink: #ecebe6; --muted: #9a998f; --line: #2e2d2a;
+  --accent: #7c9cff; --accent-soft: #232b45; --remote: #4a3b10; --remote-ink: #f3cf6a; --danger: #ff8a7a;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-remote: var(--remote);
+  --color-remote-ink: var(--remote-ink);
+  --color-danger: var(--danger);
+  /* landing brand palette (same in both themes: it sits on its own gradient) */
+  --color-brand-purple: #6d4fe3;
+  --color-brand-violet: #8b6cf0;
+  --color-brand-teal: #2cc9ad;
+  --color-brand-yellow: #f6c90e;
+  --font-display: var(--font-montserrat), var(--font-inter), system-ui, sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-serif4), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+body { background: var(--bg); color: var(--ink); }
+/* The marketing pages are always light, whatever the OS theme (the editor still follows it). */
+.theme-light {
+  --bg: #f7f6f3; --surface: #ffffff; --ink: #1f1f1d; --muted: #6f6e69; --line: #e7e5df;
+  --accent: #2f5bea; --accent-soft: #e8eefe; --remote: #fff1c2; --remote-ink: #8a6100; --danger: #b42318;
+  color-scheme: light;
+}
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
