@@ -65,7 +65,7 @@ export default function Home() {
               Write scientific papers in HTML.
               <span className="mt-3 block w-fit rounded-sm bg-[#b4d5fe] px-1.5 text-xl font-medium tracking-normal text-neutral-900 sm:text-2xl">LaTeX compatible.<span aria-hidden className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-0.5 animate-pulse bg-brand-purple" /></span>
             </h1>
-            <div className="mt-8"><WaitlistForm source="hero" /></div>
+            <div className="mt-8"><WaitlistForm /></div>
           </div>
 
           {/* product shot, drawn in markup so it stays sharp */}
@@ -195,7 +195,7 @@ export default function Home() {
               <p className="mt-4 max-w-lg text-white/85">
                 We are onboarding labs and research groups in small batches. Leave your email and we&apos;ll send an invite link when your spot opens.
               </p>
-              <div className="mt-8"><WaitlistForm source="band" /></div>
+              <div className="mt-8"><WaitlistForm /></div>
             </div>
             <div aria-hidden className="mx-auto w-56 rotate-3 rounded-[2rem] bg-white/85 p-2.5 shadow-[0_30px_60px_-25px_rgb(30_10_80/.5)] ring-1 ring-white/60">
               <div className="rounded-[1.5rem] bg-white p-4 text-neutral-900 ring-1 ring-neutral-200">
