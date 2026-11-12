@@ -9,8 +9,8 @@ const display = Montserrat({ subsets: ["latin"], variable: "--font-montserrat", 
 
 const site = process.env.SITE_URL ?? "https://usewrit.dev"; // CI sets it to the live URL
 const base = process.env.BASE_PATH ?? "";
-const title = "Writ: write scientific papers in HTML, submit them in LaTeX";
-const description = "Writ is an AI-first WYSIWYG editor for scholarly articles. Semantic HTML that machines can read, live collaboration with co-authors and your own AI agents, and export to HTML, PDF and LaTeX.";
+const title = "Writ: write scientific papers in HTML, with your agents";
+const description = "Writ is a WYSIWYG editor for scientific papers. HTML underneath, so co-authors and AI agents edit the same paper, every change is logged by author, and LaTeX export is there when the journal asks.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site + base + "/"),

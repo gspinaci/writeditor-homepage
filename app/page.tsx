@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import WaitlistForm from "@/components/WaitlistForm";
+import Typewriter from "@/components/Typewriter";
 
 // ---------- line icons (stroke = currentColor) ----------
 const Icon = ({ children, className = "size-10" }: { children: ReactNode; className?: string }) => (
@@ -16,9 +17,9 @@ const icons = {
 };
 
 const features = [
-  { icon: icons.code, title: "Papers machines can read", body: <>Writ uses <a href="https://github.com/essepuntato/rash" className="underline hover:text-brand-violet">RASH</a>, a scholarly subset of HTML. Every section, figure, formula and citation is tagged as you type, so your paper is searchable, linkable and ready for linked data, not locked inside a PDF.</> },
-  { icon: icons.agent, title: "HTML-first is AI-first", body: "Plug in your own API key, or connect any MCP agent to a live session. Agents and skills edit the same paper you see, in real time." },
-  { icon: icons.history, title: "Every change has an author", body: "Co-authors and agents write together. Each change is recorded with who made it, person or model, so you always know who wrote what." },
+  { icon: icons.code, title: "Papers agents can read", body: <>Writ stores your paper as <a href="https://github.com/essepuntato/rash" className="underline hover:text-brand-violet">RASH</a>, a scholarly subset of HTML. Every section, figure, formula and citation is tagged as you type, so the paper stays searchable, linkable and ready for linked data instead of locked in a PDF.</> },
+  { icon: icons.agent, title: "HTML-first is AI-first", body: "Bring your own API key, or connect any MCP agent to a live session. Agents and skills edit the same paper you see, in real time." },
+  { icon: icons.history, title: "Every change has an author", body: "Co-authors and agents write together. Each change records who made it, person or model, so you always know who wrote what." },
 ];
 
 const alphaCards = [
@@ -53,8 +54,8 @@ export default function Home() {
             <a href="#how" className="hover:text-brand-yellow">How it works</a>
             <a href="#alpha-features" className="hover:text-brand-yellow">Alpha</a>
           </nav>
-          <a href="#alpha" className="ml-auto rounded-full border-2 border-white/80 px-5 py-2 font-display text-xs font-semibold uppercase tracking-wider hover:bg-white hover:text-brand-purple md:ml-0">
-            Join the alpha
+          <a href="#join" className="ml-auto rounded-full border-2 border-white/80 px-5 py-2 font-display text-xs font-semibold uppercase tracking-wider hover:bg-white hover:text-brand-purple md:ml-0">
+            Join the waitlist
           </a>
         </header>
 
@@ -62,9 +63,12 @@ export default function Home() {
           <div>
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight">
               Write scientific papers in HTML.
-              <span className="mt-3 block w-fit rounded-sm bg-[#b4d5fe] px-1.5 text-xl font-medium tracking-normal text-neutral-900 sm:text-2xl">LaTeX compatible.<span aria-hidden className="ml-0.5 inline-block h-[1em] w-0.5 translate-y-0.5 animate-pulse bg-brand-purple" /></span>
+              <span className="mt-3 block w-fit bg-brand-yellow px-1 leading-snug text-xl font-medium tracking-normal text-neutral-900 sm:text-2xl"><Typewriter /></span>
             </h1>
-            <div className="mt-8"><WaitlistForm /></div>
+            <p className="mt-6 max-w-md text-lg text-white/90">For you, your co-authors and your AI agents. HTML underneath, LaTeX when the journal asks.</p>
+            <div id="join" className="mt-8 scroll-mt-24"><WaitlistForm /></div>
+            <p className="mt-1 text-sm text-white/75">Closed alpha. We invite labs and research groups in small batches.</p>
+            <p className="mt-1 text-sm text-white/75">Built on RASH, an open format for scholarly HTML.</p>
           </div>
 
           {/* product shot, drawn in markup so it stays sharp */}
@@ -85,8 +89,8 @@ export default function Home() {
               <div className="px-7 py-6">
                 <p className="font-serif text-lg font-bold">1 Introduction</p>
                 <p className="mt-3 font-serif text-[15px] leading-relaxed">
-                  LaTeX produces beautiful PDFs, but <del className="rounded bg-red-100 px-0.5 text-red-900">the PDF is where structure goes to die</del>{" "}
-                  <ins className="rounded bg-green-100 px-0.5 text-green-900 no-underline">structure is lost in the PDF</ins>. Search engines and agents need it back [1].
+                  LaTeX produces beautiful PDFs, but <del className="rounded bg-red-100 px-0.5 text-red-900">structure is lost in the PDF</del>{" "}
+                  <ins className="rounded bg-green-100 px-0.5 text-green-900 no-underline">the PDF is where structure goes to die</ins>. Search engines and agents need it back [1].
                 </p>
                 <div className="mt-5 flex items-center gap-2 rounded-lg bg-neutral-50 px-3 py-2 text-xs text-neutral-600">
                   <span className="size-2 rounded-full bg-brand-teal" />Agent edited 1 sentence
@@ -106,7 +110,7 @@ export default function Home() {
         {/* ---------- FEATURES ---------- */}
         <section id="features" className="mx-auto max-w-6xl px-4 pb-24 pt-20 sm:px-6 sm:pt-32">
           <h2 className="mx-auto max-w-xl text-center font-display text-2xl font-semibold leading-snug sm:text-3xl">
-            WYSIWYG for scientific papers.<br />LaTeX only when the journal asks.
+            Written like a document.<br />Structured like data.
           </h2>
           <div className="mt-14 grid gap-12 md:grid-cols-3">
             {features.map((f) => (
@@ -116,7 +120,7 @@ export default function Home() {
                   <h3 className="font-display text-lg font-semibold">{f.title}</h3>
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-muted">{f.body}</p>
-                <a href="#how" className="mt-4 inline-block font-display text-xs font-bold uppercase tracking-wider hover:text-brand-violet">More</a>
+                <a href="#how" className="mt-4 inline-block font-display text-xs font-bold uppercase tracking-wider hover:text-brand-violet">See how it works</a>
               </article>
             ))}
           </div>
@@ -157,7 +161,7 @@ export default function Home() {
         {/* ---------- WHAT'S IN THE ALPHA ---------- */}
         <section id="alpha-features" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
           <h2 className="text-center font-display text-2xl font-semibold leading-snug sm:text-3xl">
-            What&apos;s in the alpha?<br />Subscribe to get access.
+            What&apos;s in the alpha?<br />Four things, from draft to journal.
           </h2>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {alphaCards.map((c, i) => {
@@ -171,25 +175,12 @@ export default function Home() {
                   </div>
                   <div className={`border-t px-6 py-6 ${hot ? "border-white/15" : "border-line"}`}>
                     <a href="#alpha" className={`inline-block rounded-full px-6 py-2 font-display text-[11px] font-bold uppercase tracking-wider ${hot ? "bg-white text-brand-purple hover:bg-white/90" : "border-2 border-brand-violet/40 text-brand-violet hover:border-brand-violet"}`}>
-                      Get early access
+                      Join the waitlist
                     </a>
                   </div>
                 </article>
               );
             })}
-          </div>
-        </section>
-
-        {/* ---------- CTA BAND ---------- */}
-        <section id="alpha" className="relative isolate overflow-hidden bg-brand-purple text-white">
-          <div aria-hidden className="absolute -right-8 top-6 -z-10 h-56 w-72 [mask-image:radial-gradient(closest-side,black,transparent)]" style={dots} />
-          <div className="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32">
-            <h2 className="font-display text-4xl font-bold tracking-tight sm:text-6xl">Join the closed alpha now!</h2>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/85 sm:text-xl">
-              We are onboarding labs and research groups in small batches. Leave your email and we&apos;ll send an invite link when your spot opens.
-            </p>
-            <div className="mt-10 [&>form]:mx-auto [&>form]:max-w-xl"><WaitlistForm /></div>
-            <p className="mt-6 text-sm text-white/75">Questions? <a href="mailto:hello@usewrit.dev" className="underline hover:text-white">hello@usewrit.dev</a></p>
           </div>
         </section>
 
@@ -201,15 +192,34 @@ export default function Home() {
             <span className="absolute -right-10 top-20 size-6 rounded-full bg-brand-violet/30" />
           </div>
           <div>
-            <h2 className="font-display text-3xl font-bold leading-tight tracking-tight">Structure in, structure out.<br />Search everything.</h2>
+            <h2 className="font-display text-3xl font-bold leading-tight tracking-tight">HTML is where scientific papers are headed.</h2>
+            <p className="mt-2 font-display text-sm font-semibold text-brand-violet">Structure in, structure out. Search everything.</p>
             <p className="mt-5 leading-relaxed text-muted">
-              A PDF loses your paper's structure, and machines have to guess it back.
-              Writ stores your paper as RASH, so every section, figure and reference stays tagged and readable by search engines, repositories and agents.
+              A PDF loses your paper&apos;s structure, and everyone downstream has to guess it back.
+              Writ stores your paper as RASH, a scholarly subset of HTML, so the structure is never lost.
             </p>
+            <ul className="mt-5 space-y-3 text-muted">
+              <li><strong className="text-ink">Parsed the same way every time.</strong> Any HTML parser reads your sections, figures and references identically. Nothing is reconstructed from page coordinates.</li>
+              <li><strong className="text-ink">Linkable down to the detail.</strong> Point a co-author, a reviewer or an agent at a specific section, figure or formula.</li>
+              <li><strong className="text-ink">Web first.</strong> Your paper is a web page from the first draft: searchable, readable on a phone and ready for linked data.</li>
+            </ul>
             <p className="mt-6 font-display text-sm font-bold uppercase tracking-wider text-brand-violet">Built on the RASH framework</p>
             <p className="text-xs text-muted">Research Articles in Simplified HTML</p>
           </div>
         </section>
+        {/* ---------- CTA BAND ---------- */}
+        <section id="alpha" className="relative isolate overflow-hidden bg-brand-purple text-white">
+          <div aria-hidden className="absolute -right-8 top-6 -z-10 h-56 w-72 [mask-image:radial-gradient(closest-side,black,transparent)]" style={dots} />
+          <div className="mx-auto max-w-3xl px-4 py-24 text-center sm:px-6 sm:py-32">
+            <h2 className="font-display text-4xl font-bold tracking-tight sm:text-6xl">Join the closed alpha.</h2>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-white/85 sm:text-xl">
+              We&apos;re onboarding labs and research groups in small batches. Leave your email and we&apos;ll send an invite when your spot opens.
+            </p>
+            <div className="mt-10 [&>form]:mx-auto [&>form]:max-w-xl"><WaitlistForm /></div>
+            <p className="mt-6 text-sm text-white/75">Questions? <a href="mailto:hello@usewrit.dev" className="underline hover:text-white">hello@usewrit.dev</a></p>
+          </div>
+        </section>
+
       </main>
 
       {/* ---------- FOOTER ---------- */}
@@ -217,7 +227,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl gap-10 border-t border-line px-4 py-14 text-sm sm:px-6 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
             <p className="font-display text-lg font-bold">Writ</p>
-            <p className="mt-3 max-w-xs text-muted">AI-first scholarly writing in semantic HTML, for researchers and their agents.</p>
+            <p className="mt-3 max-w-xs text-muted">Scholarly writing in semantic HTML, for researchers and their agents.</p>
             <p className="mt-3 text-xs text-muted">Writ /rɪt/, rhymes with “bit”.</p>
             <a className="mt-3 inline-block text-muted hover:text-ink" href="mailto:hello@usewrit.dev">hello@usewrit.dev</a>
           </div>
@@ -226,7 +236,7 @@ export default function Home() {
             <ul className="mt-3 space-y-2 text-muted">
               <li><a className="hover:text-ink" href="#features">Features</a></li>
               <li><a className="hover:text-ink" href="#how">How it works</a></li>
-              <li><a className="hover:text-ink" href="#alpha">Closed alpha</a></li>
+              <li><a className="hover:text-ink" href="#alpha">Join the waitlist</a></li>
             </ul>
           </div>
           <div>

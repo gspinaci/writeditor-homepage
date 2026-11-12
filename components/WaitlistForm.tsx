@@ -41,14 +41,14 @@ export default function WaitlistForm() {
     <form onSubmit={submit} className="w-full max-w-md">
       <div className="flex flex-col gap-2 sm:flex-row">
         <label htmlFor={id} className="sr-only">Email address</label>
-        <input id={id} name="email" type="email" required maxLength={254} autoComplete="email" placeholder="Enter your email here"
+        <input id={id} name="email" type="email" required maxLength={254} autoComplete="email" placeholder="Your email"
           aria-invalid={state?.ok === false || undefined} aria-describedby={`${id}-msg`}
           className="h-11 w-full min-w-0 rounded-full sm:flex-1 border-0 bg-white px-5 text-sm text-neutral-900 shadow-sm outline-none placeholder:text-neutral-400 focus-visible:ring-4 focus-visible:ring-brand-yellow" />
         {/* honeypot */}
         <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
         <button disabled={pending}
           className="h-11 shrink-0 rounded-full bg-brand-yellow px-6 text-xs font-bold uppercase tracking-wider text-neutral-900 shadow-sm transition hover:brightness-105 disabled:opacity-60">
-          {pending ? "Sending…" : "Subscribe"}
+          {pending ? "Sending…" : "Join the waitlist"}
         </button>
       </div>
       <p id={`${id}-msg`} role="status" className="mt-2 min-h-5 text-sm text-white/85">
